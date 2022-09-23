@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+.header{
+    display:flex ; /*讓項目水平排列*/
+    width: auto;
+    margin:0 20px 0 20px;
+    
+}
+
+.right{
+    flex: none; /* 固定 */
+    height: 50px;
+    line-height: 50px;
+}
+
+.left{
+    display: flex; /*讓區塊內部水平排列*/
+    justify-content: flex-end;
+    flex: auto; /* 自動填滿區塊剩下的空間 */
+    height: 50px;
+    line-height: 50px;
+ 
+}
+
+.desktop-menu{
+    margin: 0 10px;
+
+}
+   
+
+.mobile-menu{
+    display: none;
+    justify-content: flex-end;
+    
+
+}
+
+
+
+.welcome{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(182, 204, 210);
+}
+
+.welcome-text{
+    font-size: 40px;
+    text-align: center;
+    line-height: 300px;
+}
+
+
+/* 主要內容 */
+
+.flex-container-one{
+    width: 1200px;
+    display: flex; /*水平排列*/
+    justify-content: center; /*對齊主軸線中央*/
+    align-items: center;
+    margin:10px auto;
+   
+}
+
+.promotion{
+    display: flex; /*水平排列 讓文字區塊到左側*/
+    width: 590px;
+    height: 50px;
+    margin: 0px 5px 0px 5px;
+    
+}
+.promotion img{
+    width: 80px;
+    height: 50px;
+    object-fit: cover; /*防止圖片變形*/
+}
+
+.promotion-text{
+    width: 510px;
+    text-align: left;
+    line-height: 50px; /*文字垂直置中*/
+    padding-left: 10px;
+    background-color: rgb(167, 197, 217);
+
+}
+
+
+.flex-container-two{
+    width: 1200px;
+    display:flex; /*水平排列*/
+    flex-wrap: wrap; /*斷行*/
+    justify-content: center; /*對齊主軸線中央*/
+    margin:10px auto;
+    gap:10px;  /*區塊之間的空白 */
+
+}
+
+.title{
+    position: relative; /*圖上透明字 位置改相對*/
+
+}
+
+.title img{
+    width: 290px;
+}
+
+
+.fa-star { /*圖片上加星星*/
+  position: absolute;  /*圖上透明字 位置改絕對*/
+  color: yellow;
+  top: 8px;
+  right: 16px;
+
+}
+
+.title-text{  /*圖上透明字*/
+  position: absolute;  /*圖上透明字 位置改絕對*/
+  width: 290px;
+  bottom: 0px;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+  background: rgb(255, 255, 255); /* Fallback color */
+  background: rgba(255, 255, 255, 0.5); /* Black background with 0.5 opacity */
+ 
+
+}
+
+
+/* RWＤ */
+
+@media(max-width:1200px){
+    
+    .flex-container-one{
+        width: 90%;
+    }
+
+    .promotion{
+        width: 45%;
+    }
+
+   .flex-container-two {
+    width: 90%;
+    flex-wrap: wrap;
+   }
+
+   .title{
+    width:45%;
+   }
+   .title img{ /*圖上透明字*/
+    width:100%;
+   }
+   .title-text{
+    width:100%;
+   }
+    
+
+
+}
+
+
+@media(max-width:600px){
+
+    .desktop-menu{
+        display: none;
+    }
+
+    .mobile-menu{
+        display: block;
+    }
+
+    .header{
+        width: auto;
+    }
+
+    .flex-container-one{
+        flex-wrap: wrap;   /*斷行*/ 
+    }
+
+    .promotion{
+        width: 90%;
+        margin: 5px; /*斷行內的空白*/
+    }
+
+   .flex-container-two{
+    width: 90%;
+    flex-wrap: wrap;
+   }
+
+   .title{
+    width:90%;
+   }
+   .title img{
+    width:100%;
+   }
+
+}
+
+
