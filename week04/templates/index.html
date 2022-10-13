@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .header{
+            background-color: rgb(90, 84, 75);
+            height: 100px;
+
+        }
+        .title{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+            line-height: 100px;           
+            text-align: center;
+            color: aliceblue;
+        }
+        .content{
+            height: 700px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">歡迎光臨 請輸入帳號密碼</div>
+    </div>
+    <div class="content">
+        <br>
+        <br>
+
+        <div class="content-title">登入系統</div>
+        <br>
+
+       <form action="/signin" , method="POST">
+
+            帳號 <input type="text" name="username">
+            <br>
+            密碼  <input type="password" name="password">
+            <br>    
+
+            <button>登入</button>
+        </form>
+
+        <br>
+        <br>
+        <div class="content-title">計算正整數的平方</div>
+        <form action="/calculate" >
+            <input type="text" name="inputNumber">        
+            <br>
+            <br>
+            <button>計算</button>
+        </form>
+        
+        
+    </div>
+</body>
+</html>
