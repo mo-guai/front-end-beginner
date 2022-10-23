@@ -8,7 +8,10 @@ README.md 檔案，把你寫的每個 SQL 指令，以及各指令執行畫面�
 要求一:安裝 MySQL 伺服器
 請至官方網站下載，並安裝 MySQL 8.0 以上版本的伺服器在電腦中，注意安裝時設定的帳 號、密碼等關鍵資訊。
 
-要求二:建立資料庫和資料表（詳細內容在作業文件中）
+要求二:建立資料庫和資料表
+透過任何方式 ( 建議使用終端機 Command Line 介面，為第二階段操作 Linux 系統打基礎 )， 連結到 MySQL 伺服器中進行管理，完成以下動作:
+
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-2-0.png" width="50%">
 
 要求三:
 ------
@@ -102,23 +105,44 @@ SQL Aggregate Functions 利用要求二建立的資料庫和資料表，寫出�
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-3.png" width="50%">
 
 
-
+        
 
 要求五:SQL JOIN (Optional)
 ------
 在資料庫中，建立新資料表紀錄留言資訊，取名字為 message。資料表中必須包含以
 下欄位設定:
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-0.png" width="50%">
 
+        CREATE TABLE message(id bigint PRIMARY KEY AUTO_INCREMENT,
+        member_id bigint NOT NULL,
+        content varchar(255) NOT NULL,
+        like_count int NOT NULL DEFAULT 0,
+        time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(member_id) REFERENCES member(id));
+        
+        SHOW COLUMNS FROM message;
 
 ● 使用 SELECT 搭配 JOIN 語法，取得所有留言，結果須包含留言者會員的姓名。
+
+        SELECT member.name , message.content FROM message INNER JOIN member ON message.member_id = member.id
+        
+
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-1.png" width="50%">
+
 
 
 
 ● 使用 SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言，資料中須包含留言者會員的姓名。
 
+        SELECT member.name , message.content FROM message INNER JOIN member ON message.member_id = member.id WHERE member.username = 'test';
 
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-2.png" width="50%">
+ 
 
 ● 使用 SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言平均按讚數。
 
+        SELECT member.username , avg(message.like_count) FROM message INNER JOIN member ON message.member_id = member.id WHERE member.username = 'test';
+
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-3.png" width="50%">
 
 
