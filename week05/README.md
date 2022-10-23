@@ -64,11 +64,26 @@
 
 
 
-要求四:SQL Aggregate Functions 利用要求二建立的資料庫和資料表，寫出能夠滿足以下要求的 SQL 指令:
+要求四:
+SQL Aggregate Functions 利用要求二建立的資料庫和資料表，寫出能夠滿足以下要求的 SQL 指令:
 ● 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
+
+        SELECT COUNT(*) from member;
+
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-1.png" width="50%">
+
 
 
 ● 取得 member 資料表中，所有會員 follower_count 欄位的總和。
 
+        SELECT SUM(follower_count) from member;
+
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-2.png" width="50%">
+
+
 
 ● 取得 member 資料表中，所有會員 follower_count 欄位的平均數。
+
+        SELECT AVG(follower_count) from member;
+
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-4-3.png" width="50%">
