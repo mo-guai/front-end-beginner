@@ -127,7 +127,7 @@ SQL Aggregate Functions 利用要求二建立的資料庫和資料表，寫出�
         SELECT member.name , message.content FROM message INNER JOIN member ON message.member_id = member.id
         
 
-<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-5-1.png" width="50%">
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-5-1.png" width="70%">
 
 
 
@@ -136,13 +136,13 @@ SQL Aggregate Functions 利用要求二建立的資料庫和資料表，寫出�
 
         SELECT member.name , message.content FROM message INNER JOIN member ON message.member_id = member.id WHERE member.username = 'test';
 
-<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-5-2.png" width="50%">
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-5-2.png" width="70%">
  
 
 ● 使用 SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言平均按讚數。
 
         SELECT member.username , avg(message.like_count) FROM message INNER JOIN member ON message.member_id = member.id WHERE member.username = 'test';
 
-<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-5-3.png" width="50%">
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-5-3.png" width="70%">
 
 
