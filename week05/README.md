@@ -56,5 +56,7 @@
 
 使用 UPDATE 指令更新欄位 username 是 test 的會員資料，將資料中的 name 欄位改
 成 test2。
+
         UPDATE member SET NAME = 'test2' WHERE username = 'test';
+        
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-6.png" width="50%">
