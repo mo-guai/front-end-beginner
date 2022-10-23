@@ -5,25 +5,19 @@
 使用 SELECT 指令取得所有在 member 資料表中的會員資料。
         
         CREATE TABLE member(id bigint PRIMARY KEY AUTO_INCREMENT,
-name varchar(255) NOT NULL,
-username varchar(255) NOT NULL,
-password varchar(255) NOT NULL,
-follower_count int NOT NULL DEFAULT 0,
-time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP);
+        name varchar(255) NOT NULL,
+        username varchar(255) NOT NULL,
+        password varchar(255) NOT NULL,
+        follower_count int NOT NULL DEFAULT 0,
+        time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
+        INSERT INTO member(name,username,password) VALUES('test','test','test');
+        INSERT INTO member(name,username,password) VALUES('Ken','KenAccount','KenKey');
+        INSERT INTO member(name,username,password) VALUES('Joe','JoeAccount','JoeKey');
+        INSERT INTO member(name,username,password) VALUES('Zoe','ZoeAccount','ZoeKey');
+        INSERT INTO member(name,username,password) VALUES('Amy','AmyAccount','AmyKey');
 
-
- INSERT INTO member(name,username,password) VALUES('test','test','test');
-INSERT INTO member(name,username,password) VALUES('Ken','KenAccount','KenKey');
-INSERT INTO member(name,username,password) VALUES('Joe','JoeAccount','JoeKey');
-INSERT INTO member(name,username,password) VALUES('Zoe','ZoeAccount','ZoeKey');
-INSERT INTO member(name,username,password) VALUES('Amy','AmyAccount','AmyKey');
-
-
-
-
-
-SELECT* FROM member;
+        SELECT* FROM member;
 
 
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-1.png" width="50%">
