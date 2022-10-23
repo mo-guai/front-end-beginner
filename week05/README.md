@@ -24,22 +24,33 @@
 
 使用 SELECT 指令取得所有在 member 資料表中的會員資料，並按照 time 欄位，由
 近到遠排序。
+
         SELECT * FROM member order by time desc;
+        
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-2.png" width="50%">
 
 
 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，
 由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 )
+
         SELECT * FROM member order by time desc limit 1, 3;
+        
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-3.png" width="50%">
 
 
 使用 SELECT 指令取得欄位 username 是 test 的會員資料。
+
         SELECT * FROM member WHERE username = 'test';
+        
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-4.png" width="50%">
 
-        SELECT * FROM member WHERE username = 'test' and password='test';
+       
+        
+        
 使用 SELECT 指令取得欄位 username 是 test、且欄位 password 也是 test 的資料。
+
+         SELECT * FROM member WHERE username = 'test' and password='test';
+         
 <img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-5.png" width="50%">
 
 
