@@ -5,5 +5,5 @@
 ![Image](https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-1.png?)
 
 使用 SELECT 指令取得所有在 member 資料表中的會員資料。
-<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-2.png" width="50px">
+<img src="https://github.com/mo-guai/front-end-beginner/blob/main/week05/week05-img/Week05-3-2.png" width="80%">
 
