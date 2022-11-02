@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .header{
+            background-color: rgb(90, 84, 75);
+            height: 100px;
+
+        }
+        .title{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+            line-height: 100px;           
+            text-align: center;
+            color: aliceblue;
+        }
+        .content{
+            height: 700px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title"> 歡迎光臨 這是會員頁 </div>
+        <br>
+   
+        <br>
+    </div>
+    <div class="content">
+        <div class="content-title"> Hi ~  {{membername}} 恭喜你成功登入系統</div>
+    
+        <a href="/signout">登出系統</a>
+
+        <br>
+        <br>
+
+        <div class="content-title">快來留言吧</div>
+        <form action="/message" , method="POST">
+        <br>
+        內容 <input type="text" name="message"/>
+        <br>
+        <button>送出留言</button>
+        <br>
+        <br>
+
+        </form>
+        <!-- <div> {{all_message}}</div> -->
+        <div>
+            {% for item in all_message %}
+            <b>{{item[0]}} :</b> {{item[1]}}<br/>   
+            {% endfor %}
+        </div>
+       
+
+    </div>
+</body>
+</html>
