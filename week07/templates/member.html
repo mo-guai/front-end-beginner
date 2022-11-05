@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .header{
+            background-color: rgb(90, 84, 75);
+            height: 100px;
+
+        }
+        .title{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+            line-height: 100px;           
+            text-align: center;
+            color: aliceblue;
+        }
+        .content{
+            height: 700px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title"> 歡迎光臨 這是會員頁 </div>
+        <br>
+   
+        <br>
+    </div>
+    <div class="content">
+        <div class="content-title" id="welcomeName"> Hi ~  {{membername}} 恭喜你成功登入系統</div>
+    
+        <a href="/signout">登出系統</a>
+
+        <br>
+        <br>
+
+        <div class="content-title">快來留言吧</div>
+        <form action="/message" , method="POST">
+        <br>
+        內容 <input type="text" name="message"/>
+        <br>
+        <br>
+
+        <button>送出留言</button>
+        <br>
+        <br>
+
+        </form>
+        <div>
+            {% for item in all_message %}
+            <b>{{item[0]}}:</b> {{item[1]}}<br/>   
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+
+        </div>
+       
+
+        <div class="content-title">查詢會員名稱</div>
+
+        <!-- <form action="/api/member" , method="GET"> --> 
+            <br>
+            <input type="text" class="inputUserName"/> 
+            <button onclick="searchData()">查詢</button>
+            <br>
+            <!-- {{data}} -->
+            <div id="searchResult"></div>
+            <br>
+            <br>
+            <br>
+        <!-- </form> -->
+
+        <div class="content-title">更新我的會員名稱</div>
+            <br>
+            <input type="text" class="newMemberName" /> 
+            <button onclick="updateMemberName()">更新</button>
+            <br>
+            <!-- {{data}} -->
+            <div id="updateResult"></div>
+            <br>
+
+
+    </div>
+    <script type="text/javascript"> 
+
+    //查詢會員帳號的名字
+    function searchData(){
+        //思考步驟 1.取得使用者的查詢內容 2.連結到api抓取資料回傳到網頁上
+    
+        username = (document.querySelector(".inputUserName").value); //取得使用者輸入的資料(input中class=inputUserName)
+        
+        // 因為檔案為json格式，所以在 fetch 取得檔案之後，透過json()的方法處理檔案，接著將值傳遞到下一層
+        url="http://127.0.0.1:3000/api/member?username="+username;
+        fetch(url,{method:'GET'})
+        .then(res=> { 
+            return res.json(); 
+        })
+        .then(api_data=> { //接收api傳進來的值
+            let search_result=document.getElementById("searchResult"); //將DIV中id=searchResult設定為變數search_result
+            if(api_data["data"]==null){
+                search_result.innerHTML="查無此人"; //用變數search_result在HTML上顯示搜尋結果
+            }
+            else{
+                membername=api_data["data"]["name"] //data中的name
+                search_result.innerHTML=membername+"("+username+")" //用變數search_result在HTML上顯示搜尋結果
+            }
+        })
+    }
+    
+    //更新會員名稱
+    function updateMemberName(){
+        //思考步驟 1.取得用戶輸入的新名子 2.連接api回傳新名子到資料庫 3.api傳回更新結果並在HTNL顯示
+        newusername = (document.querySelector(".newMemberName").value); //取得使用者輸入的資料(input中class=newMemberName)
+        let request_data={ "name": newusername, }
+
+        url = "http://127.0.0.1:3000/api/member";
+        fetch(url,{method:'PATCH',
+                body: JSON.stringify(request_data), //JSON.stringify() ：將 Javascript 物件轉為 JSON 字串。 //把主體参數轉成字串，否則資料會變成[object Object]，它無法被成功儲存在後台
+                headers: {"Content-Type": "application/json",}, //設定JSON數據格式。Fetch 的使用注意事項:Content-Type 跟 body 的設定要一致 ，例如： 設定 Content-Type: 'application/json'，body 就要設定好物件的型態，若 body 設定成字串，就會出錯。
+            })
+        .then(res=> { 
+                return res.json(); 
+        })
+        .then(api_data=> { 
+
+            let update_result=document.getElementById("updateResult");  //顯示更改結果
+            if(api_data["ok"]==true){
+                update_result.innerHTML="更新成功"
+                document.getElementById("welcomeName").innerText =  //更改歡迎標題
+                                  "Hi ~ "+newusername+" 恭喜你成功登入系統"; 
+            }
+            else{
+                update_result.innerHTML="更新失敗"
+            }
+        })
+    }
+    </script>
+</body>
+</html>
